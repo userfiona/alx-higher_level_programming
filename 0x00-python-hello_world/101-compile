@@ -1,0 +1,4 @@
+#!/bin/bash
+PYFILE="path/to/your/python/file.py"
+python3 -m compileall -b "$PYFILE"
+
