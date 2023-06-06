@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-for num in range(10):
-    for next_num in range(num + 1, 10):
-        print("{:d}{:d}".format(num, next_num), end=", ")
-print()
+for num1 in range(10):
+    for num2 in range(num1 + 1, 10):
+        if num2 != 9:
+            print("{:02d}, ".format(num1 * 10 + num2), end="")
+        else:
+            print("{:02d}".format(num1 * 10 + num2))
+
