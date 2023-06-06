@@ -1,3 +1,4 @@
-#!/usr/bin/python3
-for i in range(0, 99):
-    print("{} = {:x}".format(i, i))
+for num in range(9):
+    for next_num in range(num + 1, 10):
+        print("{:02d}, {:02d}".format(num, next_num), end=", ")
+print("{:02d}".format(99))
