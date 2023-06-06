@@ -9,5 +9,4 @@ elif random_number == 0:
     print(f"{random_number} is zero")
 else:
     print(f"{random_number} is negative")
-
 ~                                                    
