@@ -1,16 +1,11 @@
 #!/usr/bin/python3
-import sys
+from calculator_1 import add, sub, mul, div
 
 if __name__ == "__main__":
-    argv_len = len(sys.argv) - 1
+    a = 10
+    b = 5
 
-    if argv_len == 0:
-        print("0 arguments.")
-    elif argv_len == 1:
-        print("1 argument:")
-    else:
-        print("{:d} arguments:".format(argv_len))
-
-    if argv_len > 0:
-        for i in range(1, argv_len + 1):
-            print("{:d}: {:s}".format(i, sys.argv[i]))
+    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
+    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
+    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
+    print("{:d} / {:d} = {:.2f}".format(a, b, div(a, b)))
