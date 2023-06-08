@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
+typedef struct listint_s
+{
+	int n;
+	struct listint_s *next;
+} listint_t;
+
+/**
+ * check_cycle - checks if a linked list contains a cycle
+ *
+ * Return: 1 if the list has a cycle, 0 if it doesn't
+ */
+int check_cycle(listint_t *list)
+{
+	listint_t *slow = list;
+	listint_t *fast = list;
+
+	if (!list)
+		return (0);
+
+	while (slow && fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+			return (1);
+	}
+
+	return (0);
+}
+
+/**
+ * main - example usage of check_cycle function
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	/* Create a sample linked list with a cycle */
+	listint_t *head = malloc(sizeof(listint_t));
+	listint_t *node1 = malloc(sizeof(listint_t));
+	listint_t *node2 = malloc(sizeof(listint_t));
+	listint_t *node3 = malloc(sizeof(listint_t));
+
+	head->n = 1;
+	node1->n = 2;
+	node2->n = 3;
+	node3->n = 4;
+
+	head->next = node1;
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = node1; /* Create a cycle */
+
+	int has_cycle = check_cycle(head);
+
+	if (has_cycle)
+		printf("The linked list contains a cycle.\n");
+	else
+		printf("The linked list does not contain a cycle.\n");
+
+	/* Free the allocated memory */
+	free(node3);
+	free(node2);
+	free(node1);
+	free(head);
+
+	return (0);
+}
