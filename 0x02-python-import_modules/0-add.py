@@ -7,4 +7,4 @@ b = 2
 
 result = add(a, b)
 
-print("{:d} + {:d} = {:d}".format(a, b, sum)
+print("{:d} + {:d} = {:d}".format(a, b, sum(a, b))
