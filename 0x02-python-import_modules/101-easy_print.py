@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-__import__(<module>.<command>)
+input('#pythoniscool')
