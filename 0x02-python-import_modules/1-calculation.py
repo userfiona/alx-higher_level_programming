@@ -15,4 +15,4 @@ if __name__ == "__main__":
     print("Sum: {} + {} = {}".format(a, b, sum_result))
     print("Difference: {} - {} = {}".format(a, b, difference_result))
     print("Product: {} * {} = {}".format(a, b, product_result))
-    print("Quotient: {} / {} = {:.2f}".format(a, b, quotient_result))
+    print("Quotient: {} / {} = {}".format(a, b, quotient_result))
