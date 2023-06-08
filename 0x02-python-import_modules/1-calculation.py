@@ -1,12 +1,18 @@
 #!/usr/bin/python3
+from calculator_1 import add, sub, mul, div
+
 if __name__ == "__main__":
-
-    from calculator_1 import add, sub, mul, div
-
     a = 10
     b = 5
 
-    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
-    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
-    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
-    print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
+    # Perform calculations
+    sum_result = add(a, b)
+    difference_result = sub(a, b)
+    product_result = mul(a, b)
+    quotient_result = div(a, b)
+
+    # Print the results
+    print("Sum: {} + {} = {}".format(a, b, sum_result))
+    print("Difference: {} - {} = {}".format(a, b, difference_result))
+    print("Product: {} * {} = {}".format(a, b, product_result))
+    print("Quotient: {} / {} = {}".format(a, b, quotient_result))
