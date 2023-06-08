@@ -7,6 +7,6 @@ def div(a, b):
         b: second integer
 
     Returns:
-        The return value. a / b
+        The return value. Integer division of a by b
     """
-    return "{:.1f}".format(a / b)
+    return a // b
