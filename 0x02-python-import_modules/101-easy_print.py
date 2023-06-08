@@ -1,2 +1,1 @@
-#!/usr/bin/python3
-import python_is_cool
+__import__(<module>.<command>)
