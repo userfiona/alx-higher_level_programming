@@ -1,12 +1,18 @@
 #!/usr/bin/python3
-def div(a, b):
-    """My division function
+from calculator_1 import add, sub, mul, div
 
-    Args:
-        a: first integer
-        b: second integer
+if __name__ == "__main__":
+    a = 10
+    b = 5
 
-    Returns:
-        The return value. Integer division of a by b
-    """
-    return a // b
+    # Perform calculations
+    sum_result = add(a, b)
+    difference_result = sub(a, b)
+    product_result = mul(a, b)
+    quotient_result = div(a, b)
+
+    # Print the results
+    print("Sum: {} + {} = {}".format(a, b, sum_result))
+    print("Difference: {} - {} = {}".format(a, b, difference_result))
+    print("Product: {} * {} = {}".format(a, b, product_result))
+    print("Quotient: {} / {} = {:.2f}".format(a, b, quotient_result))
