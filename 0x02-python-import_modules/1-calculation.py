@@ -12,7 +12,7 @@ if __name__ == "__main__":
     quotient_result = div(a, b)
 
     # Print the results
-    print("Sum: {} + {} = {}".format(a, b, sum_result))
-    print("Difference: {} - {} = {}".format(a, b, difference_result))
-    print("Product: {} * {} = {}".format(a, b, product_result))
-    print("Quotient: {} / {} = {}".format(a, b, quotient_result))
+    print("Sum: {:d} + {:d} = {:d}".format(a, b, sum_result))
+    print("Difference: {:d} - {:d} = {:d}".format(a, b, difference_result))
+    print("Product: {:d} * {:d} = {:d}".format(a, b, product_result))
+    print("Quotient: {:d} / {:d} = {:d}".format(a, b, quotient_result))
