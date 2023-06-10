@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Switch"""
 a = 89
 b = 10
 temp = a
