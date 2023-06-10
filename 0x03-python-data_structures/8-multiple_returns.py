@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def multiple_returns(sentence):
     """
     Function that returns a tuple containing the length of the sentence and the first character.
