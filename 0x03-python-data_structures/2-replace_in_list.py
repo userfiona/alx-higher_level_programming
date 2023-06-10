@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 def replace_in_list(my_list, idx, element
-    """
-    Replaces an element in a list at a specific position.
-    
+    """ 
         
     Returns:
         The updated list after replacing the element, or the original list if the index is out of range.
