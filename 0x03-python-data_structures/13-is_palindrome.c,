@@ -1,28 +1,31 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stddef.h>
 
-"""Linked list palindrome"""
-typedef struct ListNode {
-    int val;
-    struct ListNode* next;
-} listint_t;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 
-int is_palindrome(listint_t** head) {
-    if (*head == NULL || (*head)->next == NULL)
-        return 1;
+int is_palindrome(struct ListNode **head) {
+   
+    if (*head == NULL || (*head)->next == NULL) {
+        return 1;  // Empty list or single element is considered a palindrome
+    }
 
-    listint_t* slow = *head;
-    listint_t* fast = *head;
-
-    while (fast != NULL && fast->next != NULL) {
+  
+    struct ListNode *slow = *head;
+    struct ListNode *fast = *head;
+    while (fast->next != NULL && fast->next->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
     }
 
-    listint_t* prev = NULL;
-    listint_t* curr = slow;
-    listint_t* next;
-
+ 
+    struct ListNode *prev = NULL;
+    struct ListNode *curr = slow->next;
+    struct ListNode *next;
     while (curr != NULL) {
         next = curr->next;
         curr->next = prev;
@@ -30,45 +33,17 @@ int is_palindrome(listint_t** head) {
         curr = next;
     }
 
-    listint_t* firstHalf = *head;
-    listint_t* secondHalf = prev;
-
+   
+    struct ListNode *firstHalf = *head;
+    struct ListNode *secondHalf = prev;
     while (secondHalf != NULL) {
-        if (firstHalf->val != secondHalf->val)
-            return 0;
+        if (firstHalf->val != secondHalf->val) {
+            return 0;  // Not a palindrome
+        }
         firstHalf = firstHalf->next;
         secondHalf = secondHalf->next;
     }
 
-    return 1;
+    return 1;  
 }
-
-int main() {
-    
-    listint_t* head = malloc(sizeof(listint_t));
-    head->val = 1;
-
-    listint_t* node1 = malloc(sizeof(listint_t));
-    node1->val = 2;
-
-    listint_t* node2 = malloc(sizeof(listint_t));
-    node2->val = 3;
-
-    listint_t* node3 = malloc(sizeof(listint_t));
-    node3->val = 2;
-
-    listint_t* node4 = malloc(sizeof(listint_t));
-    node4->val = 1;
-
-    head->next = node1;
-    node1->next = node2;
-    node2->next = node3;
-    node3->next = node4;
-    node4->next = NULL;
-
-    int result = is_palindrome(&head);
-    printf("Is the linked list a palindrome? %s\n", result ? "Yes" : "No");
-
-    return 0;
-}
-
+ 
