@@ -11,7 +11,7 @@
 int is_palindrome(struct ListNode **head) {
    
     if (*head == NULL || (*head)->next == NULL) {
-        return 1;  // Empty list or single element is considered a palindrome
+        return 1;
     }
 
   
