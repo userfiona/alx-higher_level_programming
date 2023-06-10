@@ -9,11 +9,11 @@ def replace_in_list(my_list, idx, element):
         element: The new element to replace the existing one.
 
     Returns:
-        The updated list after replacing the element, or the original list if the index is out of range.
+        The updated list after replacing the element, or the original list if the index is negative or out of range.
     """
     if idx < 0 or idx >= len(my_list):
         return my_list
 
-    new_list = my_list.copy()
-    new_list[idx] = element
-    return new_list
+    updated_list = my_list[:]
+    updated_list[idx] = element
+    return updated_list
