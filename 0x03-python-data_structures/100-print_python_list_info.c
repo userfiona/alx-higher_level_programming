@@ -1,6 +1,4 @@
-#include "lists.h"
-
-"""import ctypes"""
+-I/usr/include/python3.4
 
 int is_palindrome(listint_t **head)
 {
