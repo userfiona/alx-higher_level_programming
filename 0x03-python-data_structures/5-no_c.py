@@ -1,19 +1,15 @@
 #!/usr/bin/python3
-def replace_in_list(my_list, idx, element):
-    """Replaces an element of a list at a specific position.
+def no_c(my_string):
+    """Removes all characters 'c' and 'C' from a string.
 
     Args:
-        my_list (list): The list in which the element needs to be replaced.
-        idx (int): The index position at which the element should be replaced.
-        element: The new element to replace the existing one.
+        my_string (str): The input string.
 
     Returns:
-        list: The updated list after replacing the element, or the original list if the index is out of range.
+        str: The new string with 'c' and 'C' removed.
     """
-    if idx < 0:
-        return my_list
-    elif idx >= len(my_list):
-        return my_list
-    else:
-        my_list[idx] = element
-        return my_list
+    new_string = ""
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            new_string += char
+    return new_string
