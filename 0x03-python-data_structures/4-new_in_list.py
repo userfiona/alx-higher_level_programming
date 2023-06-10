@@ -2,7 +2,7 @@
 
 def new_in_list(my_list, idx, element):
     """
-    Replaces an element in a list without modifying the original list.
+    Replace in a copy
 
     Args:
         my_list: The original list.
