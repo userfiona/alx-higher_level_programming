@@ -1,11 +1,11 @@
 #include "lists.h"
 
 /**
- * CPython #0: Python lists
+ * Create a C function that prints some basic info about Python lists.
  * @head: address of pointer to list
  * Return: 1 is palindrome else 0
  */
-"""Create a C function that prints some basic info about Python lists."""
+
 int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head, *fast = *head, *node, *prev;
