@@ -5,6 +5,7 @@
  * @head: address of pointer to list
  * Return: 1 is palindrome else 0
  */
+"""CPython #0: Python lists"""
 int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head, *fast = *head, *node, *prev;
