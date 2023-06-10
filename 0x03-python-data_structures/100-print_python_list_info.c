@@ -1,63 +1,17 @@
--I/usr/include/python3.4
+#include <stdio.h>
+#include <Python.h>
 
-int is_palindrome(listint_t **head)
-{
-	listint_t *slow = *head, *fast = *head, *node, *prev;
-	int failed = 0;
+void print_python_list_info(PyObject *p) {
+    Py_ssize_t size = PyList_Size(p);
+    Py_ssize_t allocated = ((PyListObject *)p)->allocated;
+    PyTypeObject *type;
 
-	while (fast != NULL && fast->next != NULL)
-	{
-		fast = fast->next->next;
-		slow = slow->next;
-	}
-	node = slow;
-	prev = NULL;
-	while (node)
-	{
-		fast = node->next;
-		node->next = prev;
-		prev = node;
-		node = fast;
-	}
-	fast = *head;
-	node = prev;
-	while (prev)
-	{
-		if (fast->n != prev->n)
-		{
-			failed = 1;
-			break;
-		}
-		fast = fast->next;
-		prev = prev->next;
-	}
-	prev = NULL;
-	while (node)
-	{
-		fast = node->next;
-		node->next = prev;
-		prev = node;
-		node = fast;
-	}
-	return (!failed);
-}
+    printf("[*] Size of the Python List = %ld\n", size);
+    printf("[*] Allocated = %ld\n", allocated);
 
-void switch_values(int *a, int *b)
-{
-	*a ^= *b;
-	*b ^= *a;
-	*a ^= *b;
-}
-
-int main(void)
-{
-	int a = 89;
-	int b = 10;
-
-	/* Insert your code here */
-	switch_values(&a, &b);
-
-	printf("a=%d - b=%d\n", a, b);
-
-	return 0;
+    for (Py_ssize_t i = 0; i < size; i++) {
+        PyObject *item = PyList_GetItem(p, i);
+        type = Py_TYPE(item);
+        printf("Element %ld: %s\n", i, type->tp_name);
+    }
 }
