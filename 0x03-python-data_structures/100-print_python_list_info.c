@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * is_palindrome - tests if linked lists is palindrome
+ * CPython #0: Python lists
  * @head: address of pointer to list
  * Return: 1 is palindrome else 0
  */
