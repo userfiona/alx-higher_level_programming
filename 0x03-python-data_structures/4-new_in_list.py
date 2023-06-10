@@ -2,7 +2,7 @@
 
 def new_in_list(my_list, idx, element):
     """
-    Replace in a copy
+    Write a function that replaces an element in a list at a specific position without modifying the original list.
 
     Args:
         my_list: The original list.
