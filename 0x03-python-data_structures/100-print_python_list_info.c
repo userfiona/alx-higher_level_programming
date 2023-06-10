@@ -1,6 +1,6 @@
 #include "lists.h"
 
-"""CPython #0: Python lists"""
+"""Create a C function that prints some basic info about Python lists."""
 
 int is_palindrome(listint_t **head)
 {
