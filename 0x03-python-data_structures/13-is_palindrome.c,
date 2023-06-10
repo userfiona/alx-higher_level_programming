@@ -11,7 +11,6 @@ int is_palindrome(listint_t** head) {
     if (*head == NULL || (*head)->next == NULL)
         return 1;
 
-    // Find the middle of the linked list
     listint_t* slow = *head;
     listint_t* fast = *head;
 
@@ -20,7 +19,6 @@ int is_palindrome(listint_t** head) {
         fast = fast->next->next;
     }
 
-    // Reverse the second half of the linked list
     listint_t* prev = NULL;
     listint_t* curr = slow;
     listint_t* next;
@@ -32,7 +30,6 @@ int is_palindrome(listint_t** head) {
         curr = next;
     }
 
-    // Compare the values of the first and second half of the linked list
     listint_t* firstHalf = *head;
     listint_t* secondHalf = prev;
 
@@ -47,7 +44,7 @@ int is_palindrome(listint_t** head) {
 }
 
 int main() {
-    // Example usage
+    
     listint_t* head = malloc(sizeof(listint_t));
     head->val = 1;
 
