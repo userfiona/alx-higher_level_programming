@@ -1,68 +1,77 @@
-#include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
- * is_palindrome - tests if linked lists is palindrome
- * @head: address of pointer to list
- * Return: 1 is palindrome else 0
- */
-int is_palindrome(listint_t **head)
-{
-	listint_t *slow = *head, *fast = *head, *node, *prev;
-	int failed = 0;
+/* Definition for singly-linked list */
+typedef struct ListNode {
+    int val;
+    struct ListNode* next;
+} listint_t;
 
-	while (fast != NULL && fast->next != NULL)
-	{
-		fast = fast->next->next;
-		slow = slow->next;
-	}
-	node = slow;
-	prev = NULL;
-	while (node)
-	{
-		fast = node->next;
-		node->next = prev;
-		prev = node;
-		node = fast;
-	}
-	fast = *head;
-	node = prev;
-	while (prev)
-	{
-		if (fast->n != prev->n)
-		{
-			failed = 1;
-			break;
-		}
-		fast = fast->next;
-		prev = prev->next;
-	}
-	prev = NULL;
-	while (node)
-	{
-		fast = node->next;
-		node->next = prev;
-		prev = node;
-		node = fast;
-	}
-	return (!failed);
+int is_palindrome(listint_t** head) {
+    if (*head == NULL || (*head)->next == NULL)
+        return 1;
+
+    // Find the middle of the linked list
+    listint_t* slow = *head;
+    listint_t* fast = *head;
+
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    // Reverse the second half of the linked list
+    listint_t* prev = NULL;
+    listint_t* curr = slow;
+    listint_t* next;
+
+    while (curr != NULL) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    // Compare the values of the first and second half of the linked list
+    listint_t* firstHalf = *head;
+    listint_t* secondHalf = prev;
+
+    while (secondHalf != NULL) {
+        if (firstHalf->val != secondHalf->val)
+            return 0;
+        firstHalf = firstHalf->next;
+        secondHalf = secondHalf->next;
+    }
+
+    return 1;
 }
 
-void switch_values(int *a, int *b)
-{
-	*a ^= *b;
-	*b ^= *a;
-	*a ^= *b;
+int main() {
+    // Example usage
+    listint_t* head = malloc(sizeof(listint_t));
+    head->val = 1;
+
+    listint_t* node1 = malloc(sizeof(listint_t));
+    node1->val = 2;
+
+    listint_t* node2 = malloc(sizeof(listint_t));
+    node2->val = 3;
+
+    listint_t* node3 = malloc(sizeof(listint_t));
+    node3->val = 2;
+
+    listint_t* node4 = malloc(sizeof(listint_t));
+    node4->val = 1;
+
+    head->next = node1;
+    node1->next = node2;
+    node2->next = node3;
+    node3->next = node4;
+    node4->next = NULL;
+
+    int result = is_palindrome(&head);
+    printf("Is the linked list a palindrome? %s\n", result ? "Yes" : "No");
+
+    return 0;
 }
 
-int main(void)
-{
-	int a = 89;
-	int b = 10;
-
-	/* Insert your code here */
-	switch_values(&a, &b);
-
-	printf("a=%d - b=%d\n", a, b);
-
-	return 0;
-}
