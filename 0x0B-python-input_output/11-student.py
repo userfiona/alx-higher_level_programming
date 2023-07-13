@@ -3,7 +3,18 @@
 
 
 class Student:
-    """Student to disk and reload"""
+    """Student - class
+       Attributes:
+                 to_json(): retrieve a dict rep of student instance
+                 reload_from_json(): replace all attributes of the student
+                                          instance.
+                 first_name (str): Student's first name
+                 last_name  (str): Student's last name
+                 age        (int): Student's age
+       Args:
+           first_name (str): Student's first name
+           last_name  (str): Student's last name
+           age        (int): Student's age"""
 
     def __init__(self, first_name, last_name, age):
         """Student to disk and reload"""
