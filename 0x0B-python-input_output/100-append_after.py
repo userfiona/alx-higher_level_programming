@@ -1,19 +1,26 @@
 #!/usr/bin/python3
+"""
+Search and update
+functions:
+def append_after(filename="", search_string="", new_string=""):
+"""
+
 
 def append_after(filename="", search_string="", new_string=""):
     """
-    Inserts a line of text after each line containing a specific string in a file.
-
-    Args:
-        filename (str): Name of the file.
-        search_string (str): String to search for in each line.
-        new_string (str): String to insert after each line containing the search string.
+    A function that inserts a line of text to a file,
+    after each line containing a specific string
+    :param filename:
+    :param search_string:
+    :param new_string:
+    :return: the new string
     """
-    lines = []
-    with open(filename, "r") as file:
-        for line in file:
-            lines.append(line)
-            if search_string in line:
-                lines.append(new_string + "\n")
-    with open(filename, "w") as file:
-        file.writelines(lines)
+    with open(filename, encoding='utf-8') as a_file:
+        line_text = ""
+        for i in a_file:
+            line_text += i
+            if search_string in i:
+                line_text += new_string
+
+    with open(filename, mode='w', encoding='utf-8') as a_file:
+        a_file.write(line_text)
