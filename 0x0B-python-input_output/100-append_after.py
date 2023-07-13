@@ -7,14 +7,7 @@ def append_after(filename="", search_string="", new_string=""):
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """
-    A function that inserts a line of text to a file,
-    after each line containing a specific string
-    :param filename:
-    :param search_string:
-    :param new_string:
-    :return: the new string
-    """
+    """Search and update"""
     with open(filename, encoding='utf-8') as a_file:
         line_text = ""
         for i in a_file:
