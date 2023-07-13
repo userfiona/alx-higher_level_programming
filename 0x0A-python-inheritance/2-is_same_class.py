@@ -2,5 +2,5 @@
 """Defines a class-checking function."""
 
 def is_same_class(obj, a_class):
-    """Exact same object"""
+    """2. Exact same object""""
     return type(obj) == a_class
