@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Module of a function that writes to a text file and returns the number of characters written.
+"""Write to a file
 """
 
 
