@@ -3,7 +3,7 @@
 
 
 class Student:
-    """Student to disk and reload """
+    """Student to disk and reload"""
 
     def __init__(self, first_name, last_name, age):
         """Student to disk and reload"""
