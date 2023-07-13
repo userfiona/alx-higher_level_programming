@@ -1,17 +1,26 @@
 #!/usr/bin/python3
-"""public instance method"""
+"""
+Module to add all arguments to a Python list and then save to a file.
+"""
 
+import sys
+import json
 
-class BaseGeometry:
-    """public instance method"""
-    def area(self):
-        """raises an exception"""
-        raise Exception("area() is not implemented")
+def main():
+    """
+    Main function to add arguments to a list and save to a file.
+    """
+    filename = "add_item.json"
+    try:
+        with open(filename, 'r') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        data = []
+        
+    data.extend(sys.argv[1:])
 
-    def integer_validator(self, name, value):
-        """validates value"""
-        x = type(value)
-        if x != int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+    with open(filename, 'w') as file:
+        json.dump(data, file)
+
+if __name__ == "__main__":
+    main()
