@@ -5,8 +5,9 @@ import json
 
 
 class Base:
+     """Dictionary to JSON string"""
     __nb_objects = 0
-    """Dictionary to JSON string"""
+    
 
     def __init__(self, id=None):
         """Dictionary to JSON string"""
