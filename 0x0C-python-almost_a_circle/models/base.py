@@ -46,6 +46,18 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+         """
+    Create a new instance of the class using a dictionary of attributes.
+
+    Args:
+        **dictionary: Keyword arguments representing the attributes of the instance.
+
+    Returns:
+        object: New instance of the class with the provided attributes.
+
+    Raises:
+        None
+    """
         if cls.__name__ == "Rectangle":
             dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
