@@ -174,7 +174,9 @@ class Rectangle(Base):
                                                       self.__height))
 
     def update(self, *args, **kwargs):
-        """Update the attributes of the rectangle using non-keyworded arguments or keyword arguments
+        """Update the attributes of the
+        rectangle using non-keyworded arguments or keyword
+        arguments
 
         Args:
             *args: Non-keyworded arguments (order: id, width, height, x, y)
