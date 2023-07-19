@@ -119,12 +119,11 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """Print the rectangle using '#'"""
-        rect = self.__y * "\n"
-        for i in range(self.__height):
-            rect += (" " * self.__x)
-            rect += ("#" * self.__width) + "\n"
-        print(rect)
+        """Display #0"""
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + '#' * self.__width)
 
     def __str__(self):
         """Return a string representation of the rectangle
