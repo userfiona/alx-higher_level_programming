@@ -30,7 +30,7 @@ class Rectangle(Base):
         """Width setter
 
         Args:
-            w (int): Width of the rectangle
+            w: Width of the rectangle
 
         Raises:
             TypeError: If w is not an integer
@@ -52,7 +52,7 @@ class Rectangle(Base):
         """Height setter
 
         Args:
-            h (int): Height of the rectangle
+            h: Height of the rectangle
 
         Raises:
             TypeError: If h is not an integer
@@ -75,7 +75,7 @@ class Rectangle(Base):
         """X-coordinate setter
 
         Args:
-            x (int): X-coordinate value
+            w: X-coordinate value
 
         Raises:
             TypeError: If x is not an integer
@@ -98,7 +98,7 @@ class Rectangle(Base):
         """Y-coordinate setter
 
         Args:
-            y (int): Y-coordinate value
+            w: Y-coordinate value
 
         Raises:
             TypeError: If y is not an integer
