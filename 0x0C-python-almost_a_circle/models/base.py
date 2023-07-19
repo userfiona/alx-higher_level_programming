@@ -46,7 +46,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-         """do string"""
+         """Dictionary to Instance"""
         if cls.__name__ == "Rectangle":
             dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
