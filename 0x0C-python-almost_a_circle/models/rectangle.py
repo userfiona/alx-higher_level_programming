@@ -38,10 +38,9 @@ class Rectangle(Base):
         """
         if not isinstance(w, int):
             raise TypeError("width must be an integer")
-        elif w <= 0:
+        if w <= 0:
             raise ValueError("width must be > 0")
-        else:
-            self.__width = w
+        self.__width = w
 
     @property
     def height(self):
@@ -61,10 +60,10 @@ class Rectangle(Base):
         """
         if not isinstance(h, int):
             raise TypeError("height must be an integer")
-        elif h <= 0:
+        if h <= 0:
             raise ValueError("height must be >= 0")
-        else:
-            self.__height = h
+
+        self.__height = h
 
     @property
     def x(self):
@@ -84,10 +83,10 @@ class Rectangle(Base):
         """
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
-        elif x < 0:
+        if x < 0:
             raise ValueError("x must be >= 0")
-        else:
-            self.__x = x
+
+        self.__x = x
 
     @property
     def y(self):
@@ -107,10 +106,9 @@ class Rectangle(Base):
         """
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
-        elif y < 0:
+        if y < 0:
             raise ValueError("y must be >= 0")
-        else:
-            self.__y = y
+        self.__y = y
 
     def area(self):
         """Calculate the area of the rectangle
