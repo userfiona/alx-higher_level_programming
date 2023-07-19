@@ -12,25 +12,30 @@ class Square(Rectangle):
         self.size = size
 
     def __str__(self):
-   """ Returns printable string representation
-    of an instance """
+        """ Returns printable string representation
+        of an instance """
         return ("[{}] ({}) {:d}/{:d} - {:d}".format(
             self.__class__.__name__, self.id, self.x,
             self.y, self.size))
 
     @property
-    """Size getter and setter"""
     def size(self):
+        """Size getter and setter"""
         return (self.width)
 
     @size.setter
-    """Size getter and setter"""
     def size(self, value):
+        """size getter and setter
+        arg:
+            value:its a value"""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
-        """ This method assigns an argument to each attribute """
+        """ This method assigns an argument to each attribute
+        argument:
+            args:argument
+            kwargs:argument"""
         if args:
             for argmts in range(len(args)):
                 if argmts == 0:
