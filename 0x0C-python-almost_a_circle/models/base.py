@@ -5,9 +5,8 @@ import json
 
 
 class Base:
-     """Dictionary to JSON string"""
+    """Dictionary to JSON string"""
     __nb_objects = 0
-    
 
     def __init__(self, id=None):
         """Dictionary to JSON string"""
@@ -26,7 +25,9 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """ JSON string to dictionary"""
+        """ JSON string to dictionary
+        arg:
+            list_objs:list of objs"""
         filename = cls.__name__ + ".json"
         json_list = []
 
@@ -39,14 +40,18 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Dictionary to Instance"""
+        """Dictionary to Instance
+        arg:
+            json_string:json_string to py"""
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-         """Dictionary to Instance"""
+        """Dictionary to Instance
+         arge:
+             dictionary:arg for an create func"""
         if cls.__name__ == "Rectangle":
             dummy_instance = cls(1, 1)
         elif cls.__name__ == "Square":
@@ -57,7 +62,7 @@ class Base:
         dummy_instance.update(**dictionary)
         return dummy_instance
 
-     @classmethod
+    @classmethod
     def load_from_file(cls):
         """File to instances"""
         filename = cls.__name__ + ".json"
@@ -65,14 +70,18 @@ class Base:
             with open(filename, "r") as file:
                 json_string = file.read()
                 dictionaries = cls.from_json_string(json_string)
-                instances = [cls.create(**dict_obj) for dict_obj in dictionaries]
+                instances = [cls.create(**dict_obj)
+                             for dict_obj in dictionaries]
                 return instances
         except FileNotFoundError:
             return []
 
-         @staticmethod
+    @staticmethod
     def draw(list_rectangles, list_squares):
-        """Let's draw it"""
+        """Let's draw it
+        arguments:
+            list_rectangles:a list of rectangles of objects
+            list_squares:a list of squares"""
         screen = turtle.Screen()
         turtle.speed(2)
 
