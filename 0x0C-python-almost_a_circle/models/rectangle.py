@@ -36,7 +36,7 @@ class Rectangle(Base):
             TypeError: If w is not an integer
             ValueError: If w <= 0
         """
-        if not isinstance(w, int):
+        if type(w) is not int:
             raise TypeError("width must be an integer")
         if w <= 0:
             raise ValueError("width must be > 0")
@@ -58,7 +58,7 @@ class Rectangle(Base):
             TypeError: If h is not an integer
             ValueError: If h <= 0
         """
-        if not isinstance(h, int):
+        if type(h) is not int:
             raise TypeError("height must be an integer")
         if h <= 0:
             raise ValueError("height must be >= 0")
@@ -71,7 +71,7 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
+    def x(self, w):
         """X-coordinate setter
 
         Args:
@@ -81,7 +81,7 @@ class Rectangle(Base):
             TypeError: If x is not an integer
             ValueError: If x < 0
         """
-        if not isinstance(x, int):
+        if type(w) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
@@ -94,7 +94,7 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, y):
+    def y(self, w):
         """Y-coordinate setter
 
         Args:
@@ -104,7 +104,7 @@ class Rectangle(Base):
             TypeError: If y is not an integer
             ValueError: If y < 0
         """
-        if not isinstance(y, int):
+        if type(w) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
