@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""Area and Perimeter"""
 
 
 class Rectangle:
