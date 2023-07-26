@@ -59,4 +59,3 @@ if __name__ == "__main__":
 
     # Start the recursive process at x = 0
     nqueens(0)
-
