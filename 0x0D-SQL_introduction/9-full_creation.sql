@@ -3,7 +3,7 @@
 -- Creates a table second_table in the current database and adds multiple rows
 -- Does nothing if the second_table table already exists
 
-CREATE TABLE IF NOT EXISTS `hbtn_0c_0`.`second_table` (
+CREATE TABLE IF NOT EXISTS `second_table` (
 	`id` INT,
 	`name` VARCHAR(256),
 	`score` INT
