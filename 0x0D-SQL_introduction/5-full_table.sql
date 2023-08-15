@@ -3,4 +3,4 @@
 -- Full description of the table first_table
 -- Display table info without using DESCRIBE or EXPLAIN
 
-SHOW CREATE TABLE first_table;
+SHOW CREATE TABLE fhbtn_0c_0.irst_table;
