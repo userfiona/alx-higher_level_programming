@@ -1,9 +1,9 @@
--- Lists all genres from hbtn_0d_tvshows and displays the number of shows linked to each
--- Don’t display a genre that doesn’t have any shows linked
-SELECT g.name AS `genre`, COUNT(s.id) AS `number_of_shows`
-FROM tv_genres g
-LEFT JOIN tv_show_genres sg ON g.id = sg.genre_id
-LEFT JOIN tv_shows s ON sg.show_id = s.id
-GROUP BY g.name
-HAVING COUNT(s.id) > 0
-ORDER BY `number_of_shows` DESC;
+-- Lists all shows from the 'hbtn_0d_tvshows_rate' table by their rating.
+-- Records are ordered by descending rating.
+
+SELECT `title`, SUM(`rate`) AS `rating`
+  FROM `tv_shows` AS t
+       INNER JOIN `tv_show_ratings` AS r
+       ON t.`id` = r.`show_id`
+ GROUP BY `title`
+ ORDER BY `rating` DESC;
