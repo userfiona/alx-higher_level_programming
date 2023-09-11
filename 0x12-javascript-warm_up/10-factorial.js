@@ -1,15 +1,14 @@
 #!/usr/bin/node
 
-function factorial(num) {
-  if (isNaN(num) || num < 0) {
+function factorial(n) {
+  if (n < 0 || isNaN(n)) {
     return "Factorial is not defined for NaN or negative numbers";
-  } else if (num === 0 || num === 1) {
+  } else if (n === 0) {
     return 1;
   } else {
-    return num * factorial(num - 1);
+    return n * factorial(n - 1);
   }
 }
 
-const inputNumber = parseInt(process.argv[2]);
-
-console.log(`Factorial of ${isNaN(inputNumber) ? 'NaN' : inputNumber} is ${factorial(inputNumber)}`);
+const n = parseInt(process.argv[2]);
+console.log(factorial(n));
