@@ -1,7 +1,9 @@
 #!/usr/bin/node
 
 function factorial(num) {
-  if (num === 0 || isNaN(num)) {
+  if (isNaN(num) || num < 0) {
+    return "Factorial is not defined for NaN or negative numbers";
+  } else if (num === 0 || num === 1) {
     return 1;
   } else {
     return num * factorial(num - 1);
