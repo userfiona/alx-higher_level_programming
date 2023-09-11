@@ -1,13 +1,14 @@
 #!/usr/bin/node
 
-function factorial(num) {
-  if (num === 0 || isNaN(num)) {
-    return 1;
+if (process.argv.length <= 2) {
+  console.log(0);
+} else {
+  const args = process.argv.slice(2).map(Number);
+
+  if (args.length === 1) {
+    console.log(0);
   } else {
-    return num * factorial(num - 1);
+    const sortedArgs = args.sort((a, b) => a - b);
+    console.log(sortedArgs[sortedArgs.length - 2]);
   }
 }
-
-const inputNumber = parseInt(process.argv[2]);
-
-console.log(`Factorial of ${isNaN(inputNumber) ? 'NaN' : inputNumber} is ${factorial(inputNumber)}`);
