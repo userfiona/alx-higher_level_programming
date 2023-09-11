@@ -1,14 +1,7 @@
 #!/usr/bin/node
 
 function factorial(n) {
-  if (n < 0 || isNaN(n)) {
-    return "Factorial is not defined for NaN or negative numbers";
-  } else if (n === 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
+  return n === 0 || isNaN(n) ? 1 : n * factorial(n - 1);
 }
 
-const input = Number(process.argv[2]);
-console.log(factorial(input));
+console.log(factorial(Number(process.argv[2])));
