@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-// This is a Node.js script
-console.log('C is fun');
-console.log('Python is cool');
-console.log('JavaScript is amazing');
+// Define a constant variable called myVar
+const myVar = 'JavaScript is amazing';
+
+// Use console.log to print the value of myVar
 console.log(myVar);
