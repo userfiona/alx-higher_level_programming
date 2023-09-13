@@ -1,4 +1,4 @@
-#!/usr/bin/node
+ #!/usr/bin/node
 
 module.exports = class Rectangle {
   constructor(w, h) {
@@ -6,9 +6,9 @@ module.exports = class Rectangle {
       this.width = w;
       this.height = h;
     } else {
-      // If w or h is not a positive integer, set width and height to undefined
-      this.width = undefined;
-      this.height = undefined;
+      // If w or h is not a positive integer, create an empty object
+      Object.defineProperty(this, 'width', { value: undefined, writable: true });
+      Object.defineProperty(this, 'height', { value: undefined, writable: true });
     }
   }
 };
