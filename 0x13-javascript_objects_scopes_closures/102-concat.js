@@ -1,16 +1,31 @@
 #!/usr/bin/node
-const fs = require('fs').promises;
+const fs = require('fs');
 
-async function concatFiles() {
-  try {
-    const file1Data = await fs.readFile(process.argv[2]);
-    const file2Data = await fs.readFile(process.argv[3]);
-    const output = file1Data + file2Data;
-    await fs.writeFile(process.argv[4], output);
-    console.log('Files concatenated successfully.');
-  } catch (err) {
-    console.error('An error occurred:', err);
-  }
+function concatenateFiles() {
+  fs.readFile(process.argv[2], 'utf8', (err, first) => {
+    if (err) {
+      console.error('Error reading the first file:', err);
+      return;
+    }
+    
+    fs.readFile(process.argv[3], 'utf8', (err, second) => {
+      if (err) {
+        console.error('Error reading the second file:', err);
+        return;
+      }
+
+      const combined = first + second;
+
+      fs.writeFile(process.argv[4], combined, (err) => {
+        if (err) {
+          console.error('Error writing to the destination file:', err);
+          return;
+        }
+        
+        console.log('Files concatenated successfully.');
+      });
+    });
+  });
 }
 
-concatFiles();
+concatenateFiles();
