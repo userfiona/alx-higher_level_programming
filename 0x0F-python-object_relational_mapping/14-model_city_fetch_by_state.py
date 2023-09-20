@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script prints all City objects from the database hbtn_0e_14_usa
+Script that prints all City objects from the database hbtn_0e_14_usa
 Takes three arguments:
     - MySQL username
     - MySQL password
@@ -15,16 +15,25 @@ if __name__ == "__main__":
     from model_city import City
     from sys import argv
 
-    Session = sessionmaker()
+    # Create an engine to connect to the database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    session = Session(bind=engine)
+
+    # Create a configured "Session" class
+    Session = sessionmaker(bind=engine)
+
+    # Create a Session
+    session = Session()
+
+    # Create the database tables if they don't exist
     Base.metadata.create_all(engine)
 
-    result = (session.query(State.name, City.id, City.name).filter(
-        State.id == City.state_id).order_by(City.id).all())
+    # Query to fetch City objects along with their associated State objects
+    city_states = session.query(State, City).join(City).order_by(City.id)
 
-    for i in result:
-        print("{}: ({:d}) {}".format(i[0], i[1], i[2]))
+    # Print the results as described
+    for state, city in city_states:
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
+    # Close the session
     session.close()
