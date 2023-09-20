@@ -1,40 +1,8 @@
 #!/usr/bin/python3
 
 """
-<<<<<<< HEAD
-    A script that lists all cities from the database hbtn_0e_0_usa
-    Username, password and database names are given as user args
-"""
-
-
-import sys
-import MySQLdb
-
-
-if __name__ == '__main__':
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
-                         host='localhost',
-                         port=3306)
-
-    cursor = db.cursor()
-
-    sql = """SELECT c.id, c.name, s.name
-          FROM states s, cities c
-          WHERE c.state_id = s.id
-          ORDER BY c.id ASC"""
-
-    cursor.execute(sql)
-
-    data = cursor.fetchall()
-
-    for row in data:
-        print(row)
-
-    cursor.close()
-=======
-List all cities from a database
+A script that lists all cities from the database hbtn_0e_4_usa
+Username, password, and database names are given as user args
 """
 
 import sys
@@ -46,25 +14,38 @@ if __name__ == '__main__':
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
 
-    # Establish a connection to the database
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
-                         db=sys.argv[3], port=3306)
+    try:
+        # Connect to the MySQL server
+        db = MySQLdb.connect(user=sys.argv[1],
+                             passwd=sys.argv[2],
+                             db=sys.argv[3],
+                             host='localhost',
+                             port=3306)
 
-    # Create a cursor
-    cur = db.cursor()
+        # Create a cursor
+        cursor = db.cursor()
 
-    # Execute the query to select cities and their corresponding state names
-    cur.execute("SELECT cities.id, cities.name, states.name \
-                FROM cities JOIN states ON cities.state_id = states.id \
-                ORDER BY cities.id ASC")
+        # Execute the SQL query to select all cities with their corresponding state names
+        sql = """
+            SELECT cities.id, cities.name, states.name
+            FROM cities
+            JOIN states ON cities.state_id = states.id
+            ORDER BY cities.id ASC
+        """
 
-    # Fetch all rows and print them
-    cities = cur.fetchall()
+        cursor.execute(sql)
 
-    for city in cities:
-        print(city)
+        # Fetch all rows and print them
+        data = cursor.fetchall()
 
-    # Close the cursor and the database connection
-    cur.close()
->>>>>>> 4af1a2f9cddcdbd0e8ccc7cb2f6b9ac828f01653
-    db.close()
+        for row in data:
+            print(row)
+
+    except MySQLdb.Error as e:
+        print("MySQL Error:", e)
+    except Exception as e:
+        print("Error:", e)
+    finally:
+        # Close the cursor and the database connection in a finally block
+        cursor.close()
+        db.close()
