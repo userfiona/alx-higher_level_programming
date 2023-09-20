@@ -25,7 +25,6 @@ if __name__ == '__main__':
         # Create a cursor
         cursor = db.cursor()
 
-        # Execute the SQL query to select all cities with their corresponding state names
         sql = """
             SELECT cities.id, cities.name, states.name
             FROM cities
