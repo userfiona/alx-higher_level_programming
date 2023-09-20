@@ -5,16 +5,26 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                           passwd=argv[2], db=argv[3], charset="utf8")
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3],
+        charset="utf8"
+    )
     cur = conn.cursor()
 
     # Execute a parameterized query to select all rows where the name matches the argument
-    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY states.id ASC",
-                (argv[4], ))
+    query = """
+        SELECT *
+        FROM states
+        WHERE name = %s
+        ORDER BY states.id ASC
+    """
+    cur.execute(query, (argv[4], ))
 
     query_rows = cur.fetchall()
-    
     # Iterate through the results and print them
     for row in query_rows:
         print(row)
