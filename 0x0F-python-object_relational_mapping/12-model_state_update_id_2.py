@@ -27,7 +27,7 @@ if __name__ == "__main__":
     if state_to_update:
         # Update the name of the State object to "New Mexico"
         state_to_update.name = "New Mexico"
-        
+
         # Commit the transaction to save the changes
         session.commit()
     else:
