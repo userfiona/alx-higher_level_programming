@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Script that prints the first State object from the database
+Script that lists all State objects that contain the letter a from the database
+Using module SQLAlchemy
 """
 
 from model_state import Base, State
@@ -9,20 +10,17 @@ from sqlalchemy.orm import sessionmaker
 from sys import argv
 
 if __name__ == "__main__":
-    # Create an engine to connect to the database
+    # create an engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
-
-    Session = sessionmaker()
-    session = Session(bind=engine)
-
+    # create a configured "Session" class
+    Session = sessionmaker(bind=engine)
+    # create a Session
+    session = Session()
     Base.metadata.create_all(engine)
-    # Query the first State object and order by State.id
-    s_tate = session.query(State).order_by(State.id).first()
 
-    if s_tate:
-        print("{}: {}".format(s_tate.id, s_tate.name))
-    else:
-        print("Nothing")
-
+    s_tate = session.query(State).filter(State.name.like('%a%'))\
+                                 .order_by(State.id).all()
+    for state in s_tate:
+        print("{}: {}".format(state.id, state.name))
     session.close()
