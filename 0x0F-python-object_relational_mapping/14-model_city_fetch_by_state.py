@@ -1,17 +1,30 @@
 #!/usr/bin/python3
 """
-This module defines the City class.
+Script prints all City objects from the database hbtn_0e_14_usa
+Takes three arguments:
+    - MySQL username
+    - MySQL password
+    - Database name
+Connects to host localhost and default port (3306)
 """
 
-from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base
+if __name__ == "__main__":
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from model_state import Base, State
+    from model_city import City
+    from sys import argv
 
-class City(Base):
-    """
-    City class representation.
-    """
-    __tablename__ = 'cities'
+    Session = sessionmaker()
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    session = Session(bind=engine)
+    Base.metadata.create_all(engine)
 
-    id = Column(Integer, primary_key=True, nullable=False, unique=True)
-    name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    result = (session.query(State.name, City.id, City.name).filter(
+        State.id == City.state_id).order_by(City.id).all())
+
+    for i in result:
+        print("{}: ({:d}) {}".format(i[0], i[1], i[2]))
+
+    session.close()
