@@ -14,8 +14,6 @@ if __name__ == "__main__":
         charset="utf8"
     )
     cur = conn.cursor()
-
-    # Execute a parameterized query to select all rows where the name matches the argument
     query = """
         SELECT *
         FROM states
