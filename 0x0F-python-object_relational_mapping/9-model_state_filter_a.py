@@ -17,7 +17,6 @@ if __name__ == "__main__":
     session = Session(bind=engine)
 
     Base.metadata.create_all(engine)
-    
     # Query the first State object and order by State.id
     s_tate = session.query(State).order_by(State.id).first()
 
