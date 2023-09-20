@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Script that lists all states with a name starting with N (upper N)
-from the database
+ Filter states
 """
 import MySQLdb
 from sys import argv
