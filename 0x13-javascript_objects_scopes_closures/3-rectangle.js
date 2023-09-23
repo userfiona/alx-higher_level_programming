@@ -11,7 +11,7 @@ module.exports = class Rectangle {
     }
   }
 
-  print() {
+  print () { // Added space before the parentheses
     if (this.width !== undefined && this.height !== undefined) {
       for (let i = 0; i < this.height; i++) {
         console.log('X'.repeat(this.width));
