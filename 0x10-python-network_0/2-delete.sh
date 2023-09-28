@@ -1,11 +1,3 @@
 #!/bin/bash
-
-if [ -z "$1" ]; then
-    echo "Please provide a URL."
-    exit 1
-fi
-
-response=$(curl -sX DELETE "$1")
-
-echo "Response Body:"
-echo "$response"
+# Send a DELETE request to a given URL and display the response body.
+curl -sX DELETE "$1"
