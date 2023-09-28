@@ -1,14 +1,3 @@
-#!/bin/bash
-
-if [ -z "$1" ]; then
-    echo "Please provide a URL."
-    exit 1
-fi
-
-http_status_code=$(curl -si "$1" -X GET | head -n 1 | awk '{print $2}')
-
-if [ "$http_status_code" = '200' ]; then
-    curl -sL "$1"
-else
-    echo "HTTP Status Code: $http_status_code"
-fi
+#!/bin/bash                                                                   
+# a Bash script that takes in a URL, sends a GET request to the URL, and displays the body of the response                                                  
+if [ "$(curl -sLI "$1" -X GET | grep "200 OK" | cut -d' ' -f2)" = '200' ]; then curl -sL "$1"; fi
