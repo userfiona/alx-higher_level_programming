@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""fetches https://alx-intranet.hbtn.io/status
-"""
+# Task 0. What's my status? #0
 
 import urllib.request
 
