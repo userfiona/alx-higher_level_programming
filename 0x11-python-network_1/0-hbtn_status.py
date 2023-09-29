@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Fetches and displays the content from https://alx-intranet.hbtn.io/status using urllib.
+What's my status? #0
 """
 
 import urllib.request
