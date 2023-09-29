@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-What's my status
-"""
+"""Python script that fetches https://intranet.hbtn.io/status."""
 
 import urllib.request
 
