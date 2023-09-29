@@ -14,12 +14,10 @@ if __name__ == "__main__":
             data = response.read().decode('utf-8')
 
         x_request_id = response.headers.get('X-Request-Id')
-        
         print("Body response:")
         print("\t- type: {}".format(type(data)))
         print("\t- content: {}".format(data))
         print("\t- utf8 content: {}".format(data))
         print("\t- X-Request-Id: {}".format(x_request_id))
-        
-    except urllib.error.URLError as e:
+        except urllib.error.URLError as e:
         print("Error:", e.reason)
