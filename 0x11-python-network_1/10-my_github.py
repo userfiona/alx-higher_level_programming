@@ -25,5 +25,4 @@ if __name__ == "__main__":
         letter = sys.argv[1]
     else:
         letter = ""
-    
-    search_user(letter)
+        search_user(letter)
