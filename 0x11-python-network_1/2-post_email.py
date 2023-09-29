@@ -17,8 +17,10 @@ if __name__ == "__main__":
         with urllib.request.urlopen(url) as response:
             x_request_id = response.headers.get('X-Request-Id')
             if x_request_id is not None:
-                print(x_request_id)
+                print("X-Request-Id:", x_request_id)
             else:
                 print("X-Request-Id not found in the response header.")
     except urllib.error.URLError as e:
         print("Error:", e.reason)
+    except Exception as e:
+        print("An error occurred:", str(e))

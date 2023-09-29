@@ -17,7 +17,7 @@ def search_user(letter=""):
             print("[{}] {}".format(data.get('id'), data.get('name')))
         else:
             print("No result")
-    except Exception:
+    except:
         print("Not a valid JSON")
 
 if __name__ == "__main__":
@@ -25,4 +25,5 @@ if __name__ == "__main__":
         letter = sys.argv[1]
     else:
         letter = ""
-        search_user(letter)
+    
+    search_user(letter)
