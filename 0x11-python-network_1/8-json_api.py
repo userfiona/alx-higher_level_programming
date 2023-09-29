@@ -20,10 +20,10 @@ def search_user(letter=""):
     except ValueError:
         print("Not a valid JSON")
 
-        if __name__ == "__main__":
+if __name__ == "__main__":
     if len(sys.argv) > 1:
         letter = sys.argv[1]
     else:
         letter = ""
-
-        search_user(letter)
+    
+    search_user(letter)
