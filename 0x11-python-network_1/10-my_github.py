@@ -8,6 +8,7 @@ import sys
 import requests
 from requests.auth import HTTPBasicAuth
 
+
 def get_github_id(username, token):
     auth = HTTPBasicAuth(username, token)
     response = requests.get('https://api.github.com/user', auth=auth)
@@ -17,6 +18,7 @@ def get_github_id(username, token):
     else:
         print(f"Error: {response.status_code}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
