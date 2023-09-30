@@ -1,24 +1,17 @@
 #!/usr/bin/python3
-"""Displays the value of the X-Request-Id variable found in
-the header of the response for a given URL.
+"""Takes in a URL and an email, sends a POST to the requested
+URL with the email as the parameter and displays the response POST an email
 """
 
+import sys
+import urllib.request
+import urllib.parse
+
 if __name__ == "__main__":
-    import urllib.request
-    import sys
-
-    if len(sys.argv) != 2:
-        print("Usage: python script_name.py <URL>")
-        sys.exit(1)
-
     url = sys.argv[1]
+    value = {'email': sys.argv[2]}
+    parameter = urllib.parse.urlencode(value).encode('ascii')
 
-    try:
-        with urllib.request.urlopen(url) as response:
-            x_request_id = response.headers.get('X-Request-Id')
-            if x_request_id is not None:
-                print(x_request_id)
-            else:
-                print("X-Request-Id not found in the response header.")
-    except urllib.error.URLError as e:
-        print("Error:", e.reason)
+    request = urllib.request.Request(url, parameter)
+    with urllib.request.urlopen(request) as response:
+        print(response.read().decode('utf-8'))
