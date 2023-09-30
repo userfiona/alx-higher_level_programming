@@ -5,6 +5,7 @@ The first argument will be your username.
 The second argument will be your password (in your case, a personal
 access token as password).
 """
+"""My GitHub!"""
 import sys
 import requests
 from requests.auth import HTTPBasicAuth
