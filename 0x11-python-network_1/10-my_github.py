@@ -1,29 +1,26 @@
 #!/usr/bin/python3
 """
-Given a letter as a parameter, POST to http://0.0.0.0:5000/search_user
-Usage: ./8-json_api.py [letter only]
+Fetches your GitHub user ID using Basic Authentication.
 """
+
 import sys
 import requests
-
-def search_user(letter=""):
-    url = 'http://0.0.0.0:5000/search_user'
-    payload = {'q': letter}
-    response = requests.post(url, data=payload)
-
-    try:
-        data = response.json()
-        if data:
-            print("[{}] {}".format(data.get('id'), data.get('name')))
-        else:
-            print("No result")
-    except:
-        print("Not a valid JSON")
+from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        letter = sys.argv[1]
+    github_api_url = "https://api.github.com/user"
+    github_username = sys.argv[1]
+    personal_access_token = sys.argv[2]
+
+    response = requests.get(
+        github_api_url,
+        auth=HTTPBasicAuth(github_username, personal_access_token)
+    )
+
+    user_info = response.json()
+    user_id = user_info.get("id")
+
+    if user_id:
+        print(f"GitHub User ID: {user_id}")
     else:
-        letter = ""
-    
-    search_user(letter)
+        print("Unable to retrieve user ID. Please check your credentials.")
