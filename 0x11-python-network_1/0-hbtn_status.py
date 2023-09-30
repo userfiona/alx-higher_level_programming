@@ -1,18 +1,14 @@
 #!/usr/bin/python3
-# Task 0. What's my status? #0
+"""fetches https://alx-intranet.hbtn.io/status What's my status
+"""
 
-import urllib.request
 
-# Define the URL
-url = 'https://alx-intranet.hbtn.io/status'
+if __name__ == "__main__":
+    import urllib.request
 
-# Fetch the content from the URL
-with urllib.request.urlopen(url) as response:
-    # Read the response content
-    content = response.read().decode("utf-8")
-
-    # Display the content information
-    print('Body response:')
-    print(f'\t- type: {type(content)}')
-    print(f'\t- content: {content}')
-    print(f'\t- utf8 content: {content}')
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
+        content = res.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode('utf-8')))
